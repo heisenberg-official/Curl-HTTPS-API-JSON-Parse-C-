@@ -38,8 +38,8 @@ std::string MaskToJson(std::string cmd_data)
 
 int main()
 {
-    std::string MainCMD = "curl -H \"Content-Type: application/x-www-form-urlencoded\" -H \"XF-Api-Key: XYZHEADERAPI\" -d \"login=HEiSENBERG&password=YourPassword\" https://YourWebsite.XYZ/api/auth";
-    std::string StdOut = MaskToJson(GetStdoutFromCommand(MainCMD));
-    std::cout << StdOut;
-	  return 0;
+	std::string MainCMD = "curl -H \"Content-Type: application/x-www-form-urlencoded\" -H \"XF-Api-Key: XYZHEADERAPI\" -d \"login=HEiSENBERG&password=YourPassword\" https://YourWebsite.XYZ/api/auth";
+	std::string StdOut = MaskToJson(GetStdoutFromCommand(MainCMD));
+	std::cout << StdOut;
+	return 0;
 }
