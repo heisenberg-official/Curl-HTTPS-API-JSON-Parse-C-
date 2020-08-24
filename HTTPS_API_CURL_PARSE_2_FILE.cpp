@@ -8,32 +8,32 @@
 
 std::string GetStdoutFromCommand(std::string cmd)
 {
-    std::string data;
-    FILE* stream;
-    const int max_buffer = 256;
-    char buffer[max_buffer];
-    cmd.append(" 2>&1");
+	    std::string data;
+	    FILE* stream;
+	    const int max_buffer = 256;
+	    char buffer[max_buffer];
+	    cmd.append(" 2>&1");
 
-    stream = _popen(cmd.c_str(), "r");
-    if (stream) {
-        while (!feof(stream))
-            if (fgets(buffer, max_buffer, stream) != NULL) data.append(buffer);
-        _pclose(stream);
-    }
-    return data;
+	    stream = _popen(cmd.c_str(), "r");
+	    if (stream) {
+		while (!feof(stream))
+		    if (fgets(buffer, max_buffer, stream) != NULL) data.append(buffer);
+		_pclose(stream);
+	    }
+	    return data;
 }
 
 std::string MaskToJson(std::string cmd_data)
 {
-    int x = -1;
-    for (int i = 0; i < cmd_data.length(); i++)
-    {
-        x++;
-        if (cmd_data[i] == '{')
-            break;
-    }
-    cmd_data.erase(0, x);
-    return cmd_data;
+	    int x = -1;
+	    for (int i = 0; i < cmd_data.length(); i++)
+	    {
+		x++;
+		if (cmd_data[i] == '{')
+		    break;
+	    }
+	    cmd_data.erase(0, x);
+	    return cmd_data;
 }
 
 int main()
